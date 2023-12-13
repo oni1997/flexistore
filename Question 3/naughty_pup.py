@@ -78,6 +78,7 @@ def scan_directory(directory, extensions=[], include_defaults=True):
     """
 
     print("Opening the laptop, the expresso tasted great!.")
+
     if include_defaults:
         extensions += DEFAULT_EXTENSIONS
 
@@ -85,9 +86,9 @@ def scan_directory(directory, extensions=[], include_defaults=True):
 
     for root, dirs, files in os.walk(directory):
         for fn in files:
-            if "."+fn.split(".")[1] in extensions:
-                ret = print_troll_checked(root+"/"+fn)
-            number_of_troll_files += ret
+            if "." + fn.split(".")[1] in extensions:
+                ret = print_troll_checked(root + "/" + fn)
+                number_of_troll_files += ret
 
     print("Scanning complete. Found %s trolls.", number_of_troll_files)
     return number_of_troll_files

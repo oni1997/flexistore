@@ -36,18 +36,21 @@ class TestNaughtPup(unittest.TestCase):
             self.assertIsInstance(e,ThenTheyreGoingToEatMe,'should have raised ThenTheyreGoingToEatMe')
             
     def test_naughty_checked(self):
-        filename ="/home/oni/Downloads/flexistore/Question 3/test.txt"
+        filename ="./Question 3/test.txt"
         self.assertEqual(naughty_pup.print_troll_checked(filename),0,'Should have returned 0')
-        filename ="/home/oni/Downloads/flexistore/Question 3/test_1.txt"
+        filename ="./Question 3/test_1.txt"
         print(filename)
         self.assertEqual(naughty_pup.print_troll_checked(filename),1,"Should have returned 1")
-        filename ="/home/oni/Downloads/flexistore/Question 3/test_2.txt"
+        filename ="./Question 3/test_2.txt"
         self.assertEqual(naughty_pup.print_troll_checked(filename),-1,'Should have returned -1')
 
-    # def test_scan_directory(self):
-    #     trolls = naughty_pup.scan_directory("/home/oni/Downloads/flexistore/Question 3",".txt",True)
-    #     print(trolls)
-    #     self.assertEqual(trolls,1 ,"total files must be 1 with")
+    def test_scan_directory(self):
+        nr_trolls = naughty_pup.scan_directory("./Question 3", [".tst"], True)
+        self.assertEqual(nr_trolls, 1, "total troll files must be 1 with .tst")
+
+        nr_trolls = naughty_pup.scan_directory("Question 3", [".txt"], True)
+        self.assertEqual(nr_trolls, 0, "total troll files must be 0 without .tst")
+
 
 if __name__ == '__main__':
     unittest.main()
