@@ -59,13 +59,22 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Exchange Rate App'),
       ),
-      body: Center(
-        child: rating != null
-            ? Text(
-                "ZAR/NOK : R ${rating!.toStringAsFixed(2)}",
-                style: TextStyle(fontSize: 24),
-              )
-            : CircularProgressIndicator(),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.white, Colors.green],
+          ),
+        ),
+        child: Center(
+          child: rating != null
+              ? Text(
+                  "ZAR/NOK : R ${rating!.toStringAsFixed(2)}",
+                  style: TextStyle(fontSize: 24, color: Colors.black87),
+                )
+              : CircularProgressIndicator(),
+        ),
       ),
     );
   }
